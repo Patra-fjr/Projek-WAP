@@ -1,0 +1,233 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f5f0;
+    padding-bottom: 80px; /* DITAMBAH: Beri ruang di bawah agar konten tidak tertutup cart */
+}
+
+/* Cart Icon - DIPINDAH KE BAWAH */
+.cart-icon {
+    position: fixed;
+    bottom: 20px;  /* DIUBAH: dari top ke bottom */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    background: white;
+    padding: 15px 30px;  /* DIUBAH: padding lebih besar */
+    border-radius: 30px;  /* DIUBAH: lebih rounded */
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);  /* DIUBAH: shadow ke atas */
+    transition: all 0.3s ease;
+    max-width: 1200px;
+    width: auto;  /* DIUBAH: auto agar sesuai konten */
+    min-width: 150px;  /* DITAMBAH: lebar minimal */
+}
+
+.cart-icon:hover {
+    box-shadow: 0 -6px 25px rgba(0, 0, 0, 0.2);  /* DIUBAH: shadow lebih besar ke atas */
+    transform: translateX(-50%) translateY(-5px);  /* DIUBAH: hover naik ke atas */
+}
+
+.cart-icon a {
+    text-decoration: none;
+    color: #2c5f5d;
+    display: flex;
+    align-items: center;
+    gap: 10px;  /* DIUBAH: gap lebih besar */
+    font-weight: 600;
+    position: relative;
+    font-size: 16px;  /* DITAMBAH: ukuran font lebih besar */
+}
+
+.cart-icon i {
+    font-size: 24px;  /* DIUBAH: icon lebih besar */
+}
+
+.cart-badge {
+    position: absolute;
+    top: -10px;  /* DIUBAH: posisi badge lebih tinggi */
+    right: -10px;
+    background: #e74c3c;
+    color: white;
+    border-radius: 50%;
+    padding: 4px 8px;  /* DIUBAH: padding lebih besar */
+    font-size: 13px;  /* DIUBAH: font lebih besar */
+    font-weight: bold;
+    min-width: 24px;  /* DIUBAH: min-width lebih besar */
+    text-align: center;
+    animation: pulse 2s infinite;
+    box-shadow: 0 2px 8px rgba(231, 76, 60, 0.4);  /* DITAMBAH: shadow untuk badge */
+}
+
+/* Banner Section */
+.banner-restaurant {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #f5f5f0 0%, #d4f1e8 50%, #c8e6d9 100%);
+}
+
+.banner-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.banner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(245, 245, 240, 0.85) 0%, rgba(212, 241, 232, 0.75) 50%, rgba(200, 230, 217, 0.85) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    text-align: center;
+    padding: 20px;
+}
+
+.banner-overlay h2 {
+    font-size: 20px;
+    color: #2c5f5d;
+    font-weight: 400;
+    margin-bottom: 10px;
+    opacity: 0;
+    animation: fadeInDown 0.8s ease 0.2s forwards;
+}
+
+.banner-overlay h1 {
+    font-size: 56px;
+    color: #1a3f5c;
+    font-weight: 800;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease 0.4s forwards;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.banner-overlay p {
+    font-size: 18px;
+    color: #2c5f5d;
+    font-weight: 500;
+    max-width: 600px;
+    margin: 0 auto;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease 0.6s forwards;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.15);  /* DIUBAH: pulse lebih besar */
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        padding-bottom: 70px;  /* DIUBAH: padding lebih kecil di mobile */
+    }
+
+    .cart-icon {
+        bottom: 15px;  /* DIUBAH: lebih dekat ke bawah di mobile */
+        padding: 12px 20px;
+        width: auto;
+        min-width: 120px;
+    }
+
+    .cart-icon span:not(.cart-badge) {
+        font-size: 14px;  /* DIUBAH: tampilkan text tapi lebih kecil */
+    }
+
+    .cart-icon i {
+        font-size: 20px;
+    }
+
+    .banner-restaurant {
+        height: 400px;
+    }
+
+    .banner-overlay h2 {
+        font-size: 16px;
+    }
+
+    .banner-overlay h1 {
+        font-size: 36px;
+    }
+
+    .banner-overlay p {
+        font-size: 14px;
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding-bottom: 65px;
+    }
+
+    .cart-icon {
+        bottom: 10px;
+        padding: 10px 18px;
+        min-width: 110px;
+    }
+
+    .cart-icon span:not(.cart-badge) {
+        font-size: 13px;
+    }
+
+    .cart-icon i {
+        font-size: 18px;
+    }
+
+    .banner-restaurant {
+        height: 350px;
+    }
+
+    .banner-overlay h1 {
+        font-size: 28px;
+    }
+
+    .banner-overlay p {
+        font-size: 13px;
+    }
+}
