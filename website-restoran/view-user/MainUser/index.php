@@ -1,4 +1,6 @@
 <?php
+// komen
+
 
 // Detektif Error PHP (Hanya untuk Development!)
 // Matikan ini di environment production
